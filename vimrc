@@ -61,7 +61,7 @@ let g:neocomplcache_enable_at_startup = 1
 " NERDTreeで隠しファイルをデフォルトで表示
 let NERDTreeShowHidden = 1
 " デフォルトでNERTree起動
-autocmd VimEnter * execute 'NERDTree'
+" autocmd VimEnter * execute 'NERDTree'
 
 filetype plugin indent on
 
@@ -69,6 +69,6 @@ set list
 set listchars=tab:>-,trail:-,eol:<,extends:≫,precedes:≪,nbsp:%
 highlight SpecialKey term=underline ctermfg=darkgray guifg=darkgray
 
-:no <C-E> :Explor
+:no <C-E> :NERDTree
 :no <C-u> :Unite
 
