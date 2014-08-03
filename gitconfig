@@ -1,0 +1,5 @@
+[user]
+	email = service@starferry.net
+	name = momentspace
+[core]
+	excludesfile = /home/moment/.gitignore_global
