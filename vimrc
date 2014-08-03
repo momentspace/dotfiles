@@ -9,23 +9,26 @@ endif
 
 
 " ここにインストールしたいプラグインのリストを書く
-NeoBundle 'Shougo/vimproc'
-NeoBundle 'Shougo/vimshell'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'tpope/vim-pathogen'
-NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'errormarker.vim'
-NeoBundle 'tomtom/tcomment_vim'
-NeoBundle 'ZenCoding.vim'
-NeoBundle 'kana/vim-textobj-user'
+NeoBundle 'Shougo/vimproc'      " 非同期実行
+NeoBundle 'Shougo/vimshell'     " vimからshell起動
+NeoBundle 'scrooloose/nerdtree' " Nerdtree
+" NeoBundle 'Shougo/unite.vim'   " ファイラ兼ランチャ
+NeoBundle 'tpope/vim-pathogen'  " 
+NeoBundle 'Shougo/neocomplcache'  " 入力候補表示
+NeoBundle 'scrooloose/syntastic'  " 自動文法チェック
+NeoBundle 'Shougo/neosnippet'     " スニペットプラグイン
+NeoBundle 'errormarker.vim'       " 
+NeoBundle 'tomtom/tcomment_vim'   " 
+NeoBundle 'ZenCoding.vim'         " 
+NeoBundle 'kana/vim-textobj-user' " 
 NeoBundle 'sgur/vim-textobj-parameter'
 NeoBundle 'osyo-manga/vim-textobj-multiblock'
 NeoBundle 'osyo-manga/vim-textobj-multitextobj'
 
 NeoBundle 'kana/vim-operator-user'
 NeoBundle 'kana/vim-operator-replace'
+
+NeoBundleCheck
 
 set number
 set title
@@ -54,6 +57,11 @@ if neobundle#exists_not_installed_bundles()
 endif
 
 let g:neocomplcache_enable_at_startup = 1
+
+" NERDTreeで隠しファイルをデフォルトで表示
+let NERDTreeShowHidden = 1
+" デフォルトでNERTree起動
+autocmd VimEnter * execute 'NERDTree'
 
 filetype plugin indent on
 
