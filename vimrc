@@ -33,6 +33,8 @@ NeoBundle 'kana/vim-operator-replace'
 NeoBundle 'vim-scripts/VimIRC.vim'
 NeoBundle 'mattn/emmet-vim'
 
+NeoBundle 'xsbeats/vim-blade'     " Blade templates highlight
+
 " PHP Documentor
 NeoBundle 'tobyS/vmustache'
 NeoBundle 'tobyS/pdv'
