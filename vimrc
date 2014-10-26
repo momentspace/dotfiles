@@ -4,12 +4,11 @@ filetype plugin indent off
 
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim
-  call neobundle#rc(expand('~/.vim/bundle'))
+  call neobundle#begin(expand('~/.vim/bundle'))
 endif
 
-
 " ここにインストールしたいプラグインのリストを書く
-NeoBundle 'Shougo/vimproc' , { 'build' : { 'unix' : 'make -f make_unix.mak', }, }
+NeoBundle 'Shougo/vimproc' , { 'build' : { 'unix' : 'make -f make_unix.mak; make -f make_mac.mak', }, }
 NeoBundle 'Shougo/vimshell'     " vimからshell起動
 NeoBundle 'scrooloose/nerdtree' " Nerdtree
 NeoBundle 'Shougo/unite.vim'    " ファイラ兼ランチャ
@@ -18,6 +17,7 @@ NeoBundle 'tpope/vim-pathogen'  "
 NeoBundle 'Shougo/neocomplcache'  " 入力候補表示
 NeoBundle 'scrooloose/syntastic'  " 自動文法チェック
 NeoBundle 'Shougo/neosnippet'     " スニペットプラグイン
+NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'errormarker.vim'       " 
 NeoBundle 'tomtom/tcomment_vim'   " 
 NeoBundle 'ZenCoding.vim'         " 
@@ -64,6 +64,10 @@ NeoBundle 'therubymug/vim-pyte'
 NeoBundle 'tomasr/molokai'
 " hybird カラースキーム
 NeoBundle 'w0ng/vim-hybrid'
+
+if has('vim_starting')
+  call neobundle#end()
+endif
 
 NeoBundleCheck
 
