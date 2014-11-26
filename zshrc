@@ -81,3 +81,16 @@ bindkey "^[[1~" beginning-of-line
 bindkey "^[[4~" end-of-line
 
 stty -ixon -ixoff
+
+
+#aliases
+alias ls="ls -G" # color for darwin
+alias ll="ls -la"
+alias tree="tree -NC" # N: 文字化け対策, C:色をつける
+alias grep="grep --color -n -I --exclude='*.svn-*' --exclude='entries' --exclude='*/cache/*'"
+
+# iTerm2のタブ名を変更する
+function title {
+  echo -ne "\033]0;"$*"\007"
+}
+
