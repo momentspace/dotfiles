@@ -8,7 +8,14 @@ if has('vim_starting')
 endif
 
 " ここにインストールしたいプラグインのリストを書く
-NeoBundle 'Shougo/vimproc' , { 'build' : { 'unix' : 'make -f make_unix.mak; make -f make_mac.mak', }, }
+NeoBundle 'Shougo/vimproc', {
+  \ 'build' : {
+  \ 'windows' : 'make -f make_mingw32.mak',
+  \ 'cygwin' : 'make -f make_cygwin.mak',
+  \ 'mac' : 'make -f make_mac.mak',
+  \ 'unix' : 'make -f make_unix.mak',
+  \ },
+\ }
 NeoBundle 'Shougo/vimshell'     " vimからshell起動
 NeoBundle 'scrooloose/nerdtree' " Nerdtree
 NeoBundle 'Shougo/unite.vim'    " ファイラ兼ランチャ
@@ -30,15 +37,23 @@ NeoBundle 'tpope/vim-rails'
 NeoBundle 'kana/vim-operator-user'
 NeoBundle 'kana/vim-operator-replace'
 
-NeoBundle 'vim-scripts/VimIRC.vim'
-NeoBundle 'mattn/emmet-vim'
+" NeoBundle 'vim-scripts/VimIRC.vim'
+" NeoBundle 'mattn/emmet-vim'
 
 NeoBundle 'xsbeats/vim-blade'     " Blade templates highlight
 
 " PHP Documentor
-NeoBundle 'tobyS/vmustache'
-NeoBundle 'tobyS/pdv'
-NeoBundle 'sirver/ultisnips'
+" NeoBundle 'tobyS/vmustache'
+" NeoBundle 'tobyS/pdv'
+" NeoBundle 'sirver/ultisnips'
+
+NeoBundle 'thinca/vim-quickrun'             " quickrun
+" NeoBundle 'nathanaelkane/vim-indent-guides' " indent-guides
+
+" PowerLine
+NeoBundle 'alpaca-tc/alpaca_powertabline'
+NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
+NeoBundle 'Lokaltog/powerline-fontpatcher'
 
 " colorscheme
 NeoBundle 'ujihisa/unite-colorscheme'
@@ -162,7 +177,7 @@ function! ExecuteNERDTree()
 endfunction
 
 noremap <C-q><C-q> :NERDTreeToggle<cr>
-noremap <C-q><C-r> :Unite file_mru<cr>
+noremap <C-q><C-f> :Unite file_mru<cr>
 noremap <C-r><C-r> :NERDTreeFind<cr>
 "====================
 "END NerdTree 設定
@@ -177,3 +192,20 @@ let g:user_emmet_leader_key='<c-q>'
 let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
 nnoremap <buffer> <C-p> :call pdv#DocumentWithSnip()<CR>
 
+
+" quickrun setting
+let g:quickrun_no_default_key_mappings = 1
+nnoremap <C-q><C-r> <Plug>(quickrun)
+let g:quickrun_config={'*': {'split': ''}}
+let g:quickrun_config._={ 'runner':'vimproc',
+      \       "runner/vimproc/updatetime" : 10,
+      \       "outputter/buffer/close_on_empty" : 1,
+      \ }
+
+" vim-indent-guides
+" let g:indent_guides_enable_on_vim_startup = 1 " Vim 起動時 vim-indent-guides を自動起動
+" let g:indent_guides_start_level = 2           " ガイドをスタートするインデントの量
+" let g:indent_guides_auto_colors = 0           " 自動カラー無効
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#444433 ctermbg=black     " 奇数番目のインデントの色
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#333344 ctermbg=darkgray  " 偶数番目のインデントの色
+" let g:indent_guides_guide_size = 1            " ガイドの幅
