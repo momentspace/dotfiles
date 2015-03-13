@@ -67,10 +67,10 @@ fi
 # ssh
 export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-# rbenv setting
-export PATH="/usr/local/heroku/bin:$PATH"
-export PATH="/usr/local/rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+# profile settings
+for i in /etc/profile.d/*.sh ; do
+  [ -r $i ] && source $i
+done
 
 # delete, home, end key binding
 bindkey -e
