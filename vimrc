@@ -19,6 +19,7 @@ NeoBundle 'Shougo/vimproc', {
 NeoBundle 'Shougo/vimshell'     " vimからshell起動
 NeoBundle 'scrooloose/nerdtree' " Nerdtree
 NeoBundle 'Shougo/unite.vim'    " ファイラ兼ランチャ
+NeoBundle 'Shougo/neomru.vim'   " file_mru
 NeoBundle 'tpope/vim-fugitive'   " git client
 NeoBundle 'tpope/vim-pathogen'  " 
 NeoBundle 'Shougo/neocomplcache'  " 入力候補表示
@@ -33,6 +34,7 @@ NeoBundle 'sgur/vim-textobj-parameter'
 NeoBundle 'osyo-manga/vim-textobj-multiblock'
 NeoBundle 'osyo-manga/vim-textobj-multitextobj'
 NeoBundle 'tpope/vim-rails'
+NeoBundle 'OmniSharp/omnisharp-vim'
 
 NeoBundle 'kana/vim-operator-user'
 NeoBundle 'kana/vim-operator-replace'
@@ -41,6 +43,7 @@ NeoBundle 'kana/vim-operator-replace'
 " NeoBundle 'mattn/emmet-vim'
 
 NeoBundle 'xsbeats/vim-blade'     " Blade templates highlight
+NeoBundle 'slim-template/vim-slim.git'
 
 " PHP Documentor
 " NeoBundle 'tobyS/vmustache'
@@ -51,9 +54,9 @@ NeoBundle 'thinca/vim-quickrun'             " quickrun
 " NeoBundle 'nathanaelkane/vim-indent-guides' " indent-guides
 
 " PowerLine
-NeoBundle 'alpaca-tc/alpaca_powertabline'
-NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
-NeoBundle 'Lokaltog/powerline-fontpatcher'
+" NeoBundle 'alpaca-tc/alpaca_powertabline'
+" NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
+" NeoBundle 'Lokaltog/powerline-fontpatcher'
 
 " colorscheme
 NeoBundle 'ujihisa/unite-colorscheme'
@@ -177,8 +180,8 @@ function! ExecuteNERDTree()
 endfunction
 
 noremap <C-q><C-q> :NERDTreeToggle<cr>
-noremap <C-q><C-f> :Unite file_mru<cr>
-noremap <C-r><C-r> :NERDTreeFind<cr>
+" nnoremap <C-q><C-f> :Unite file_mru<cr>
+nnoremap <C-q><C-f> :NERDTreeFind<cr>
 "====================
 "END NerdTree 設定
 "====================
@@ -209,3 +212,16 @@ let g:quickrun_config._={ 'runner':'vimproc',
 " autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#444433 ctermbg=black     " 奇数番目のインデントの色
 " autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#333344 ctermbg=darkgray  " 偶数番目のインデントの色
 " let g:indent_guides_guide_size = 1            " ガイドの幅
+
+" rubocop
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby'] }
+let g:syntastic_ruby_checkers = ['rubocop']
+
+
+" vimgrep
+nnoremap [q :cprevious<CR>   " 前へ
+nnoremap ]q :cnext<CR>       " 次へ
+nnoremap [Q :<C-u>cfirst<CR> " 最初へ
+nnoremap ]Q :<C-u>clast<CR>  " 最後へ
+
+
