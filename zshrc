@@ -55,11 +55,7 @@ export PATH=/usr/local/bin:~/.composer/vendor/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='mvim'
-fi
+export EDITOR='vim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -94,3 +90,5 @@ function title {
   echo -ne "\033]0;"$*"\007"
 }
 
+export JAVA_HOME=/usr/local/jdk1.8.0_45
+RPROMPT='%{$fg[green]%}[$(current_branch)]%{$fg[yellow]%}[%m]%{$reset_color%}'
