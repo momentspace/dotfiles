@@ -58,6 +58,9 @@ NeoBundle 'thinca/vim-quickrun'             " quickrun
 " NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
 " NeoBundle 'Lokaltog/powerline-fontpatcher'
 
+" css/sass/compass
+NeoBundle 'cakebaker/scss-syntax.vim'
+NeoBundle 'hail2u/vim-css3-syntax'
 " colorscheme
 NeoBundle 'ujihisa/unite-colorscheme'
 " solarized カラースキーム
