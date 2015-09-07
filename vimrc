@@ -215,3 +215,8 @@ let g:quickrun_config._={ 'runner':'vimproc',
 " autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#444433 ctermbg=black     " 奇数番目のインデントの色
 " autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#333344 ctermbg=darkgray  " 偶数番目のインデントの色
 " let g:indent_guides_guide_size = 1            " ガイドの幅
+
+" rubocop
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby'] }
+let g:syntastic_ruby_checkers = ['rubocop']
+
