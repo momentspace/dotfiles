@@ -94,3 +94,6 @@ function title {
   echo -ne "\033]0;"$*"\007"
 }
 
+export JAVA_HOME=/usr/local/jdk1.8.0_45
+
+RPROMPT='%{$fg[green]%}[$(current_branch)]%{$fg[yellow]%}[%m]%{$reset_color%}'
