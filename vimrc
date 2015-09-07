@@ -19,6 +19,7 @@ NeoBundle 'Shougo/vimproc', {
 NeoBundle 'Shougo/vimshell'     " vimからshell起動
 NeoBundle 'scrooloose/nerdtree' " Nerdtree
 NeoBundle 'Shougo/unite.vim'    " ファイラ兼ランチャ
+NeoBundle 'Shougo/neomru.vim'   " file_mru
 NeoBundle 'tpope/vim-fugitive'   " git client
 NeoBundle 'tpope/vim-pathogen'  " 
 NeoBundle 'Shougo/neocomplcache'  " 入力候補表示
