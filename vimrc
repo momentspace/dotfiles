@@ -183,8 +183,8 @@ function! ExecuteNERDTree()
 endfunction
 
 noremap <C-q><C-q> :NERDTreeToggle<cr>
-noremap <C-q><C-f> :Unite file_mru<cr>
-noremap <C-r><C-r> :NERDTreeFind<cr>
+" nnoremap <C-q><C-f> :Unite file_mru<cr>
+nnoremap <C-q><C-f> :NERDTreeFind<cr>
 "====================
 "END NerdTree 設定
 "====================
