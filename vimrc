@@ -54,9 +54,9 @@ NeoBundle 'thinca/vim-quickrun'             " quickrun
 " NeoBundle 'nathanaelkane/vim-indent-guides' " indent-guides
 
 " PowerLine
-NeoBundle 'alpaca-tc/alpaca_powertabline'
-NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
-NeoBundle 'Lokaltog/powerline-fontpatcher'
+" NeoBundle 'alpaca-tc/alpaca_powertabline'
+" NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
+" NeoBundle 'Lokaltog/powerline-fontpatcher'
 
 " colorscheme
 NeoBundle 'ujihisa/unite-colorscheme'
