@@ -92,6 +92,9 @@ endif
 
 NeoBundleCheck
 
+" colorscheme setting
+colorscheme jellybeans
+
 set number
 set title
 set showmatch
@@ -101,6 +104,11 @@ set ignorecase
 set smartcase
 set wrapscan
 set enc=utf-8
+
+" teraterm設定
+set term=builtin_linux
+set ttytype=builtin_linux
+set t_Co=256
 
 " from kytiken
 set smarttab
@@ -138,9 +146,6 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 if has('conceal')
   set conceallevel=2 concealcursor=i
 endif
-
-" colorscheme setting
-colorscheme hybrid
 
 " NERDTreeで隠しファイルをデフォルトで表示
 let NERDTreeShowHidden = 1
