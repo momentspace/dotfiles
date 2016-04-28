@@ -61,6 +61,11 @@ NeoBundle 'thinca/vim-quickrun'             " quickrun
 " css/sass/compass
 NeoBundle 'cakebaker/scss-syntax.vim'
 NeoBundle 'hail2u/vim-css3-syntax'
+
+" Ruby
+NeoBundle 'pocke/dicts'
+NeoBundle 'vim-ruby/vim-ruby'
+
 " colorscheme
 NeoBundle 'ujihisa/unite-colorscheme'
 " solarized カラースキーム
