@@ -8,10 +8,18 @@ if has('vim_starting')
 endif
 
 " ここにインストールしたいプラグインのリストを書く
-NeoBundle 'Shougo/vimproc' , { 'build' : { 'unix' : 'make -f make_unix.mak; make -f make_mac.mak', }, }
+NeoBundle 'Shougo/vimproc', {
+  \ 'build' : {
+  \ 'windows' : 'make -f make_mingw32.mak',
+  \ 'cygwin' : 'make -f make_cygwin.mak',
+  \ 'mac' : 'make -f make_mac.mak',
+  \ 'unix' : 'make -f make_unix.mak',
+  \ },
+\ }
 NeoBundle 'Shougo/vimshell'     " vimからshell起動
 NeoBundle 'scrooloose/nerdtree' " Nerdtree
 NeoBundle 'Shougo/unite.vim'    " ファイラ兼ランチャ
+NeoBundle 'Shougo/neomru.vim'   " file_mru
 NeoBundle 'tpope/vim-fugitive'   " git client
 NeoBundle 'tpope/vim-pathogen'  " 
 NeoBundle 'Shougo/neocomplcache'  " 入力候補表示
@@ -26,20 +34,38 @@ NeoBundle 'sgur/vim-textobj-parameter'
 NeoBundle 'osyo-manga/vim-textobj-multiblock'
 NeoBundle 'osyo-manga/vim-textobj-multitextobj'
 NeoBundle 'tpope/vim-rails'
+NeoBundle 'OmniSharp/omnisharp-vim'
 
 NeoBundle 'kana/vim-operator-user'
 NeoBundle 'kana/vim-operator-replace'
 
-NeoBundle 'vim-scripts/VimIRC.vim'
-NeoBundle 'mattn/emmet-vim'
+" NeoBundle 'vim-scripts/VimIRC.vim'
+" NeoBundle 'mattn/emmet-vim'
 
 NeoBundle 'xsbeats/vim-blade'     " Blade templates highlight
+<<<<<<< HEAD
 NeoBundle 'slim-template/vim-slim'
 
 " PHP Documentor
-NeoBundle 'tobyS/vmustache'
-NeoBundle 'tobyS/pdv'
-NeoBundle 'sirver/ultisnips'
+" NeoBundle 'tobyS/vmustache'
+" NeoBundle 'tobyS/pdv'
+" NeoBundle 'sirver/ultisnips'
+
+NeoBundle 'thinca/vim-quickrun'             " quickrun
+" NeoBundle 'nathanaelkane/vim-indent-guides' " indent-guides
+
+" PowerLine
+" NeoBundle 'alpaca-tc/alpaca_powertabline'
+" NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
+" NeoBundle 'Lokaltog/powerline-fontpatcher'
+
+" css/sass/compass
+NeoBundle 'cakebaker/scss-syntax.vim'
+NeoBundle 'hail2u/vim-css3-syntax'
+
+" Ruby
+NeoBundle 'pocke/dicts'
+NeoBundle 'vim-ruby/vim-ruby'
 
 " coffee script color syntax
 NeoBundle 'kchmck/vim-coffee-script'
@@ -82,6 +108,9 @@ endif
 
 NeoBundleCheck
 
+" colorscheme setting
+colorscheme jellybeans
+
 set number
 set title
 set showmatch
@@ -91,6 +120,11 @@ set ignorecase
 set smartcase
 set wrapscan
 set enc=utf-8
+
+" teraterm設定
+set term=builtin_linux
+set ttytype=builtin_linux
+set t_Co=256
 
 " from kytiken
 set smarttab
@@ -113,7 +147,6 @@ let g:neocomplcache_enable_at_startup = 1
 
 " colorscheme setting
 colorscheme desert
-
 " NERDTreeで隠しファイルをデフォルトで表示
 let NERDTreeShowHidden = 1
 " デフォルトでNERTree起動
@@ -155,8 +188,8 @@ function! ExecuteNERDTree()
 endfunction
 
 noremap <C-q><C-q> :NERDTreeToggle<cr>
-noremap <C-q><C-r> :Unite file_mru<cr>
-noremap <C-r><C-r> :NERDTreeFind<cr>
+" nnoremap <C-q><C-f> :Unite file_mru<cr>
+nnoremap <C-q><C-f> :NERDTreeFind<cr>
 "====================
 "END NerdTree 設定
 "====================
@@ -172,4 +205,9 @@ nnoremap <buffer> <C-p> :call pdv#DocumentWithSnip()<CR>
 
 " jsx setting
 let g:jsx_ext_required = 0
+
+" rubocop
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby'] }
+let g:syntastic_ruby_checkers = ['rubocop']
+
 

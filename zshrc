@@ -55,11 +55,7 @@ export PATH=/usr/local/bin:~/.composer/vendor/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='mvim'
-fi
+export EDITOR='vim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -67,10 +63,10 @@ fi
 # ssh
 export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-# rbenv setting
-export PATH="/usr/local/heroku/bin:$PATH"
-export PATH="/usr/local/rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+# profile settings
+for i in /etc/profile.d/*.sh ; do
+  [ -r $i ] && source $i
+done
 
 # delete, home, end key binding
 bindkey -e
@@ -84,8 +80,8 @@ stty -ixon -ixoff
 
 
 #aliases
-alias ls="ls -G" # color for darwin
-alias ll="ls -la"
+#alias ls="ls -G" # color for darwin
+#alias ll="ls -la"
 alias tree="tree -NC" # N: 文字化け対策, C:色をつける
 alias grep="grep --color -n -I --exclude='*.svn-*' --exclude='entries' --exclude='*/cache/*'"
 
@@ -94,3 +90,6 @@ function title {
   echo -ne "\033]0;"$*"\007"
 }
 
+export JAVA_HOME=/usr/local/jdk1.8.0_45
+
+RPROMPT='%{$fg[green]%}[$(current_branch)]%{$fg[yellow]%}[%m]%{$reset_color%}'
