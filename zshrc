@@ -80,16 +80,17 @@ stty -ixon -ixoff
 
 
 #aliases
-#alias ls="ls -G" # color for darwin
-#alias ll="ls -la"
+alias ls="ls -G" # color for darwin
+alias ll="ls -la"
 alias tree="tree -NC" # N: 文字化け対策, C:色をつける
 alias grep="grep --color -n -I --exclude='*.svn-*' --exclude='entries' --exclude='*/cache/*'"
+alias diff="colordiff"
+alias less="less -R"
 
 # iTerm2のタブ名を変更する
-function title {
-  echo -ne "\033]0;"$*"\007"
-}
+#function title {
+#  echo -ne "\033]0;"$*"\007"
+#}
 
-export JAVA_HOME=/usr/local/jdk1.8.0_45
-
-RPROMPT='%{$fg[green]%}[$(current_branch)]%{$fg[yellow]%}[%m]%{$reset_color%}'
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
