@@ -34,11 +34,22 @@ NeoBundle 'vim-scripts/VimIRC.vim'
 NeoBundle 'mattn/emmet-vim'
 
 NeoBundle 'xsbeats/vim-blade'     " Blade templates highlight
+NeoBundle 'slim-template/vim-slim'
 
 " PHP Documentor
 NeoBundle 'tobyS/vmustache'
 NeoBundle 'tobyS/pdv'
 NeoBundle 'sirver/ultisnips'
+
+" coffee script color syntax
+NeoBundle 'kchmck/vim-coffee-script'
+
+" less syntax
+NeoBundle 'groenewege/vim-less'
+
+" jsx syntax highlight and indenting
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'mxw/vim-jsx'
 
 " colorscheme
 NeoBundle 'ujihisa/unite-colorscheme'
@@ -101,7 +112,7 @@ endif
 let g:neocomplcache_enable_at_startup = 1
 
 " colorscheme setting
-colorscheme hybrid
+colorscheme desert
 
 " NERDTreeで隠しファイルをデフォルトで表示
 let NERDTreeShowHidden = 1
@@ -158,4 +169,7 @@ let g:user_emmet_leader_key='<c-q>'
 " php documentor setting
 let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
 nnoremap <buffer> <C-p> :call pdv#DocumentWithSnip()<CR>
+
+" jsx setting
+let g:jsx_ext_required = 0
 
