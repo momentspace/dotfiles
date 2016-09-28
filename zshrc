@@ -13,7 +13,7 @@ fi
 # Customize to your needs...
 
 # path
-export PATH=/usr/local/bin
+export PATH="/usr/local/bin:$PATH"
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
@@ -28,10 +28,10 @@ fi
 # ssh
 export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-# rbenv setting
-export PATH="$HOME/.rbenv/bin:$PATH"
-export PATH="~/Library/Android/sdk/platform-tools/:$PATH"
-eval "$(rbenv init -)"
+# macos setting
+#export PATH="$HOME/.rbenv/bin:$PATH"
+#eval "$(rbenv init -)"
+#export PATH="~/Library/Android/sdk/platform-tools/:$PATH"
 
 # delete, home, end key binding
 bindkey -e
