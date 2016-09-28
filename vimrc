@@ -61,6 +61,13 @@ NeoBundle 'thinca/vim-quickrun'             " quickrun
 " css/sass/compass
 NeoBundle 'cakebaker/scss-syntax.vim'
 NeoBundle 'hail2u/vim-css3-syntax'
+
+" Ruby
+NeoBundle 'pocke/dicts'
+NeoBundle 'vim-ruby/vim-ruby'
+NeoBundle 'tpope/vim-endwise'
+let g:endwise_no_mappings=1
+
 " colorscheme
 NeoBundle 'ujihisa/unite-colorscheme'
 " solarized カラースキーム
@@ -85,6 +92,8 @@ NeoBundle 'therubymug/vim-pyte'
 NeoBundle 'tomasr/molokai'
 " hybird カラースキーム
 NeoBundle 'w0ng/vim-hybrid'
+" badwolf カラースキーム
+NeoBundle 'sjl/badwolf'
 
 if has('vim_starting')
   call neobundle#end()
@@ -140,7 +149,8 @@ if has('conceal')
 endif
 
 " colorscheme setting
-colorscheme hybrid
+set t_Co=256
+colorscheme wombat
 
 " NERDTreeで隠しファイルをデフォルトで表示
 let NERDTreeShowHidden = 1
@@ -220,6 +230,10 @@ let g:quickrun_config._={ 'runner':'vimproc',
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby'] }
 let g:syntastic_ruby_checkers = ['rubocop']
 
+" matchit
+if !exists('loaded_matchit')
+  runtime macros/matchit.vim
+endif
 
 " vimgrep
 nnoremap [q :cprevious<CR>   " 前へ
