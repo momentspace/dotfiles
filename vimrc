@@ -43,7 +43,7 @@ NeoBundle 'kana/vim-operator-replace'
 " NeoBundle 'mattn/emmet-vim'
 
 NeoBundle 'xsbeats/vim-blade'     " Blade templates highlight
-NeoBundle 'slim-template/vim-slim.git'
+NeoBundle 'slim-template/vim-slim'
 
 " PHP Documentor
 " NeoBundle 'tobyS/vmustache'
@@ -67,6 +67,16 @@ NeoBundle 'pocke/dicts'
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'tpope/vim-endwise'
 let g:endwise_no_mappings=1
+
+" coffee script color syntax
+NeoBundle 'kchmck/vim-coffee-script'
+
+" less syntax
+NeoBundle 'groenewege/vim-less'
+
+" jsx syntax highlight and indenting
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'mxw/vim-jsx'
 
 " colorscheme
 NeoBundle 'ujihisa/unite-colorscheme'
@@ -111,6 +121,11 @@ set smartcase
 set wrapscan
 set enc=utf-8
 
+" teraterm設定
+set term=builtin_linux
+set ttytype=builtin_linux
+set t_Co=256
+
 " from kytiken
 set smarttab
 set expandtab
@@ -130,26 +145,7 @@ endif
 
 let g:neocomplcache_enable_at_startup = 1
 
-" neosnippet Plugin key-mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-
-" SuperTab like snippets behavior.
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: "\<TAB>"
-
-" For snippet_complete marker.
-if has('conceal')
-  set conceallevel=2 concealcursor=i
-endif
-
 " colorscheme setting
-set t_Co=256
 colorscheme wombat
 
 " NERDTreeで隠しファイルをデフォルトで表示
@@ -201,30 +197,14 @@ nnoremap <C-q><C-f> :NERDTreeFind<cr>
 
 
 " emmet-vim設定
-let g:user_emmet_leader_key='<c-q>'
-
+" let g:user_emmet_leader_key='<c-q>'
 
 " php documentor setting
 let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
 nnoremap <buffer> <C-p> :call pdv#DocumentWithSnip()<CR>
 
-
-" quickrun setting
-let g:quickrun_no_default_key_mappings = 1
-nnoremap <C-q><C-r> <Plug>(quickrun)
-let g:quickrun_config={'*': {'split': ''}}
-let g:quickrun_config._={ 'runner':'vimproc',
-      \       "runner/vimproc/updatetime" : 10,
-      \       "outputter/buffer/close_on_empty" : 1,
-      \ }
-
-" vim-indent-guides
-" let g:indent_guides_enable_on_vim_startup = 1 " Vim 起動時 vim-indent-guides を自動起動
-" let g:indent_guides_start_level = 2           " ガイドをスタートするインデントの量
-" let g:indent_guides_auto_colors = 0           " 自動カラー無効
-" autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#444433 ctermbg=black     " 奇数番目のインデントの色
-" autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#333344 ctermbg=darkgray  " 偶数番目のインデントの色
-" let g:indent_guides_guide_size = 1            " ガイドの幅
+" jsx setting
+let g:jsx_ext_required = 0
 
 " rubocop
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby'] }
@@ -234,11 +214,4 @@ let g:syntastic_ruby_checkers = ['rubocop']
 if !exists('loaded_matchit')
   runtime macros/matchit.vim
 endif
-
-" vimgrep
-nnoremap [q :cprevious<CR>   " 前へ
-nnoremap ]q :cnext<CR>       " 次へ
-nnoremap [Q :<C-u>cfirst<CR> " 最初へ
-nnoremap ]Q :<C-u>clast<CR>  " 最後へ
-
 
