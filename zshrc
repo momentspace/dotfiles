@@ -43,7 +43,10 @@ fi
 # Customize to your needs...
 
 # path
-export PATH="$PATH:/usr/local/bin"
+export PATH="/usr/local/bin:$PATH"
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -55,9 +58,10 @@ fi
 # ssh
 export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-# rbenv setting
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+# macos setting
+#export PATH="$HOME/.rbenv/bin:$PATH"
+#eval "$(rbenv init -)"
+#export PATH="~/Library/Android/sdk/platform-tools/:$PATH"
 
 # android platform-tools
 export PATH="~/Library/Android/sdk/platform-tools/:$PATH"
