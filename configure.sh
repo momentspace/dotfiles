@@ -8,4 +8,5 @@ ln -s ~/dotfiles/gitignore_global ~/.gitignore_global
 mv ~/.zshrc ~/.zshrc.org
 ln -s ~/dotfiles/zshrc ~/.zshrc
 ln -s ~/dotfiles/zpreztorc ~/.zpreztorc
+ln -s ~/dotfiles/zprofile ~/.zprofile
 ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
