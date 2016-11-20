@@ -34,7 +34,7 @@ NeoBundle 'sgur/vim-textobj-parameter'
 NeoBundle 'osyo-manga/vim-textobj-multiblock'
 NeoBundle 'osyo-manga/vim-textobj-multitextobj'
 NeoBundle 'tpope/vim-rails'
-NeoBundle 'OmniSharp/omnisharp-vim'
+" NeoBundle 'OmniSharp/omnisharp-vim'
 
 NeoBundle 'kana/vim-operator-user'
 NeoBundle 'kana/vim-operator-replace'
@@ -64,15 +64,17 @@ NeoBundle 'hail2u/vim-css3-syntax'
 
 " Ruby
 NeoBundle 'pocke/dicts'
-NeoBundle 'vim-ruby/vim-ruby'
-NeoBundle 'tpope/vim-endwise'
-let g:endwise_no_mappings=1
+" NeoBundle 'vim-ruby/vim-ruby'
 
 " coffee script color syntax
 NeoBundle 'kchmck/vim-coffee-script'
 
 " less syntax
 NeoBundle 'groenewege/vim-less'
+
+" elixir syntax
+NeoBundle 'elixir-lang/vim-elixir'
+
 
 " jsx syntax highlight and indenting
 NeoBundle 'pangloss/vim-javascript'
@@ -102,14 +104,15 @@ NeoBundle 'therubymug/vim-pyte'
 NeoBundle 'tomasr/molokai'
 " hybird カラースキーム
 NeoBundle 'w0ng/vim-hybrid'
-" badwolf カラースキーム
-NeoBundle 'sjl/badwolf'
 
 if has('vim_starting')
   call neobundle#end()
 endif
 
 NeoBundleCheck
+
+" colorscheme setting
+colorscheme jellybeans
 
 set number
 set title
@@ -146,8 +149,7 @@ endif
 let g:neocomplcache_enable_at_startup = 1
 
 " colorscheme setting
-colorscheme wombat
-
+colorscheme desert
 " NERDTreeで隠しファイルをデフォルトで表示
 let NERDTreeShowHidden = 1
 " デフォルトでNERTree起動
@@ -197,7 +199,8 @@ nnoremap <C-q><C-f> :NERDTreeFind<cr>
 
 
 " emmet-vim設定
-" let g:user_emmet_leader_key='<c-q>'
+let g:user_emmet_leader_key='<c-q>'
+
 
 " php documentor setting
 let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
@@ -210,8 +213,6 @@ let g:jsx_ext_required = 0
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby'] }
 let g:syntastic_ruby_checkers = ['rubocop']
 
-" matchit
-if !exists('loaded_matchit')
-  runtime macros/matchit.vim
-endif
+" backspace
+set backspace=indent,eol,start
 
