@@ -1,5 +1,6 @@
 [user]
-	email = service@starferry.net
+	email = momentspace@gmail.com
 	name = momentspace
 [core]
-	excludesfile = /home/moment/.gitignore_global
+  excludesfile = ~/.gitignore_global 
+

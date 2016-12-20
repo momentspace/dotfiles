@@ -22,7 +22,8 @@ NeoBundle 'Shougo/unite.vim'    " ファイラ兼ランチャ
 NeoBundle 'Shougo/neomru.vim'   " file_mru
 NeoBundle 'tpope/vim-fugitive'   " git client
 NeoBundle 'tpope/vim-pathogen'  " 
-NeoBundle 'Shougo/neocomplcache'  " 入力候補表示
+" NeoBundle 'Shougo/neocomplcache'  " 入力候補表示 old
+NeoBundle 'Shougo/neocomplete'    " 入力候補表示
 NeoBundle 'scrooloose/syntastic'  " 自動文法チェック
 NeoBundle 'Shougo/neosnippet'     " スニペットプラグイン
 NeoBundle 'Shougo/neosnippet-snippets'
@@ -35,6 +36,27 @@ NeoBundle 'osyo-manga/vim-textobj-multiblock'
 NeoBundle 'osyo-manga/vim-textobj-multitextobj'
 NeoBundle 'tpope/vim-rails'
 " NeoBundle 'OmniSharp/omnisharp-vim'
+
+NeoBundle 'NigoroJr/rsense'
+" NeoBundleLazy 'supermomonga/neocomplete-rsense.vim', {
+"     \ 'autoload' : { 'insert' : 1, 'filetype' : 'ruby', } }
+
+" 補完の設定
+if !exists('g:neocomplete#force_omni_input_patterns')
+  let g:neocomplete#force_omni_input_patterns = {}
+endif
+let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
+let g:rsenseUseOmniFunc = 1
+
+" ドキュメント参照
+NeoBundle 'thinca/vim-ref'
+NeoBundle 'yuku-t/vim-ref-ri'
+
+" ctags
+NeoBundle 'szw/vim-tags'
+
+" end自動追加
+NeoBundle 'tpope/vim-endwise'
 
 NeoBundle 'kana/vim-operator-user'
 NeoBundle 'kana/vim-operator-replace'
@@ -64,7 +86,13 @@ NeoBundle 'hail2u/vim-css3-syntax'
 
 " Ruby
 NeoBundle 'pocke/dicts'
+" 
 " NeoBundle 'vim-ruby/vim-ruby'
+NeoBundle 'vim-ruby/vim-ruby'
+NeoBundle 'tpope/vim-endwise'
+let g:endwise_no_mappings=1
+NeoBundle 'thoughtbot/vim-rspec'
+NeoBundle 'keith/rspec.vim'
 
 " coffee script color syntax
 NeoBundle 'kchmck/vim-coffee-script'
@@ -161,9 +189,6 @@ set list
 set listchars=tab:>-,trail:-,eol:<,nbsp:%
 highlight SpecialKey term=underline ctermfg=darkgray guifg=darkgray
 
-" :no <C-E> :NERDTree
-" :no <C-u> :Unite
-
 "====================
 " START NerdTree 設定
 "====================
@@ -190,9 +215,15 @@ function! ExecuteNERDTree()
   endif
 endfunction
 
-noremap <C-q><C-q> :NERDTreeToggle<cr>
+nmap    <space>w <C-w>
+nnoremap    [GrepTag]   <Nop>
+nmap    <space>g [GrepTag]
+noremap [GrepTag]r :vimgrep /\<<C-R><C-W>\>/ **/*.rb\|cwin
+nnoremap    [NerdTag]   <Nop>
+nmap    <space>q [NerdTag]
+noremap [NerdTag]q :NERDTreeToggle<cr>
 " nnoremap <C-q><C-f> :Unite file_mru<cr>
-nnoremap <C-q><C-f> :NERDTreeFind<cr>
+nnoremap [NerdTag]f :NERDTreeFind<cr>
 "====================
 "END NerdTree 設定
 "====================
@@ -215,4 +246,10 @@ let g:syntastic_ruby_checkers = ['rubocop']
 
 " backspace
 set backspace=indent,eol,start
+
+" vimgrep
+nnoremap [q :cprevious<CR>   " 前へ
+nnoremap ]q :cnext<CR>       " 次へ
+nnoremap [Q :<C-u>cfirst<CR> " 最初へ
+nnoremap ]Q :<C-u>clast<CR>  " 最後へ
 

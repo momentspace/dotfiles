@@ -18,8 +18,8 @@ zplug "zsh-users/zsh-completions"
 zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf
 zplug "junegunn/fzf", as:command, use:bin/fzf-tmux
 zplug "peco/peco", as:command, from:gh-r
+zplug "b4b4r07/enhancd"
 zplug "b4b4r07/dotfiles", as:command, use:bin/peco-tmux
-zplug "b4b4r07/enhancd", use:enhancd.sh
 zplug "sorin-ionescu/prezto"
 zplug "felixr/docker-zsh-completion"
 
@@ -76,12 +76,17 @@ export PATH="/usr/local/heroku/bin:$PATH"
 #bindkey "^[[1~" beginning-of-line
 #bindkey "^[[4~" end-of-line
 
-#aliases
-alias ls="ls -G" # color for darwin
+# aliases
+alias ls="ls --color=auto -G" # color for darwin
 alias ll="ls -la"
 alias tree="tree -NC" # N: 文字化け対策, C:色をつける
 alias grep="grep --color -n -I --exclude='*.svn-*' --exclude='entries' --exclude='*/cache/*'"
 alias diff="colordiff"
 alias less="less -R"
+
+# key bind
+bindkey "^[OH" beginning-of-line
+bindkey "^[OF" end-of-line
+bindkey "^[[3~" delete-char
 
 
