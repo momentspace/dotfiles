@@ -36,6 +36,11 @@ NeoBundle 'osyo-manga/vim-textobj-multitextobj'
 NeoBundle 'tpope/vim-rails'
 " NeoBundle 'OmniSharp/omnisharp-vim'
 
+
+" text object
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'rhysd/vim-textobj-ruby'
+
 NeoBundle 'kana/vim-operator-user'
 NeoBundle 'kana/vim-operator-replace'
 
