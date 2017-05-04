@@ -3,4 +3,7 @@
 	name = momentspace
 [core]
   excludesfile = ~/.gitignore_global 
+	editor = vi
+[alias]
+    wip = "!f () { git commit --allow-empty -m \"[WIP] $1 (#$2)\";}; f"
 

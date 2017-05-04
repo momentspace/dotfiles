@@ -40,7 +40,6 @@ NeoBundle 'tpope/vim-rails'
 " text object
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'rhysd/vim-textobj-ruby'
-=======
 NeoBundle 'NigoroJr/rsense'
 " NeoBundleLazy 'supermomonga/neocomplete-rsense.vim', {
 "     \ 'autoload' : { 'insert' : 1, 'filetype' : 'ruby', } }
@@ -245,8 +244,8 @@ nnoremap <buffer> <C-p> :call pdv#DocumentWithSnip()<CR>
 let g:jsx_ext_required = 0
 
 " rubocop
-let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby'] }
-let g:syntastic_ruby_checkers = ['rubocop']
+" let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby'] }
+" let g:syntastic_ruby_checkers = ['rubocop']
 
 " backspace
 set backspace=indent,eol,start

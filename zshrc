@@ -50,11 +50,7 @@ export PATH=$PATH:/usr/local/opt/go/libexec/bin
 export PATH="/usr/local/heroku/bin:$PATH"
 
 # Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='mvim'
-fi
+export EDITOR='vim'
 
 # ssh
 export SSH_KEY_PATH="~/.ssh/dsa_id"
@@ -78,7 +74,7 @@ export PATH="/usr/local/heroku/bin:$PATH"
 #bindkey "^[[4~" end-of-line
 
 # aliases
-alias ls="ls --color=auto -G" # color for darwin
+alias ls="ls -G" # color for darwin
 alias ll="ls -la"
 alias tree="tree -NC" # N: 文字化け対策, C:色をつける
 alias grep="grep --color -n -I --exclude='*.svn-*' --exclude='entries' --exclude='*/cache/*'"
