@@ -111,6 +111,8 @@ NeoBundle 'elixir-lang/vim-elixir'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'mxw/vim-jsx'
 
+NeoBundle 'ryym/vim-riot'
+
 " colorscheme
 NeoBundle 'ujihisa/unite-colorscheme'
 " solarized カラースキーム
