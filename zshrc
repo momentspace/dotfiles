@@ -43,7 +43,7 @@ fi
 # Customize to your needs...
 
 # path
-export PATH="$PATH:/usr/local/bin"
+export PATH="/usr/local/bin:$PATH"
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
@@ -89,4 +89,6 @@ bindkey "^[OH" beginning-of-line
 bindkey "^[OF" end-of-line
 bindkey "^[[3~" delete-char
 
+# color
+export TERM=xterm-256color
 

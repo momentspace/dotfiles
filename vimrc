@@ -37,6 +37,9 @@ NeoBundle 'osyo-manga/vim-textobj-multitextobj'
 NeoBundle 'tpope/vim-rails'
 " NeoBundle 'OmniSharp/omnisharp-vim'
 
+NeoBundle 'easymotion/vim-easymotion'
+NeoBundle 'Shougo/vimfiler'
+
 NeoBundle 'NigoroJr/rsense'
 " NeoBundleLazy 'supermomonga/neocomplete-rsense.vim', {
 "     \ 'autoload' : { 'insert' : 1, 'filetype' : 'ruby', } }
@@ -103,6 +106,8 @@ NeoBundle 'groenewege/vim-less'
 " elixir syntax
 NeoBundle 'elixir-lang/vim-elixir'
 
+" riot syntax hightlight
+NeoBundle 'ryym/vim-riot'
 
 " jsx syntax highlight and indenting
 NeoBundle 'pangloss/vim-javascript'
