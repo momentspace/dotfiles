@@ -40,6 +40,9 @@ NeoBundle 'tpope/vim-rails'
 NeoBundle 'easymotion/vim-easymotion'
 NeoBundle 'Shougo/vimfiler'
 
+" text object
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'rhysd/vim-textobj-ruby'
 NeoBundle 'NigoroJr/rsense'
 " NeoBundleLazy 'supermomonga/neocomplete-rsense.vim', {
 "     \ 'autoload' : { 'insert' : 1, 'filetype' : 'ruby', } }
@@ -109,9 +112,75 @@ NeoBundle 'elixir-lang/vim-elixir'
 " riot syntax hightlight
 NeoBundle 'ryym/vim-riot'
 
+" lightline
+NeoBundle 'itchyny/lightline.vim'
+
+let g:lightline = {
+        \ 'colorscheme': 'jellybeans',
+        \ 'mode_map': {'c': 'NORMAL'},
+        \ 'active': {
+        \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
+        \ },
+        \ 'component_function': {
+        \   'modified': 'LightlineModified',
+        \   'readonly': 'LightlineReadonly',
+        \   'fugitive': 'LightlineFugitive',
+        \   'filename': 'LightlineFilename',
+        \   'fileformat': 'LightlineFileformat',
+        \   'filetype': 'LightlineFiletype',
+        \   'fileencoding': 'LightlineFileencoding',
+        \   'mode': 'LightlineMode'
+        \ },
+        \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
+        \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }
+        \ }
+
+function! LightlineModified()
+  return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+endfunction
+
+function! LightlineReadonly()
+  return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? "\ue0a2" : ''
+endfunction
+
+function! LightlineFilename()
+  return ('' != LightlineReadonly() ? LightlineReadonly() . ' ' : '') .
+        \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
+        \  &ft == 'unite' ? unite#get_status_string() :
+        \  &ft == 'vimshell' ? vimshell#get_status_string() :
+        \ '' != expand('%:t') ? expand('%:t') : '[No Name]') .
+        \ ('' != LightlineModified() ? ' ' . LightlineModified() : '')
+endfunction
+
+function! LightlineFugitive()
+  if &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head')
+    return fugitive#head()
+  else
+    return ''
+  endif
+endfunction
+
+function! LightlineFileformat()
+  return winwidth(0) > 70 ? &fileformat : ''
+endfunction
+
+function! LightlineFiletype()
+  return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
+endfunction
+
+function! LightlineFileencoding()
+  return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
+endfunction
+
+function! LightlineMode()
+  return winwidth(0) > 60 ? lightline#mode() : ''
+endfunction
+
 " jsx syntax highlight and indenting
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'mxw/vim-jsx'
+
+NeoBundle 'ryym/vim-riot'
 
 " colorscheme
 NeoBundle 'ujihisa/unite-colorscheme'
@@ -172,6 +241,7 @@ set showcmd
 set autoindent
 set smartindent
 set hlsearch
+set laststatus=2
 
 if neobundle#exists_not_installed_bundles()
   echomsg 'Not installed bundles : '.
@@ -246,8 +316,8 @@ nnoremap <buffer> <C-p> :call pdv#DocumentWithSnip()<CR>
 let g:jsx_ext_required = 0
 
 " rubocop
-let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby'] }
-let g:syntastic_ruby_checkers = ['rubocop']
+" let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby'] }
+" let g:syntastic_ruby_checkers = ['rubocop']
 
 " backspace
 set backspace=indent,eol,start
