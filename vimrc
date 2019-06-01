@@ -235,7 +235,7 @@ set t_Co=256
 set smarttab
 set expandtab
 set shiftwidth=2
-set shiftround
+" set shiftround
 set nowrap
 set showcmd
 set autoindent
