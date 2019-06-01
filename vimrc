@@ -322,6 +322,10 @@ let g:jsx_ext_required = 0
 " backspace
 set backspace=indent,eol,start
 
+" bell
+" set visualbell
+set vb t_vb=
+
 " vimgrep
 nnoremap [q :cprevious<CR>   " 前へ
 nnoremap ]q :cnext<CR>       " 次へ
