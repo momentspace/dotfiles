@@ -220,22 +220,21 @@ set number
 set title
 set showmatch
 set tabstop=2
-set smartindent
 set ignorecase
 set smartcase
 set wrapscan
 set enc=utf-8
 
 " teraterm設定
-set term=builtin_linux
-set ttytype=builtin_linux
+" set term=builtin_linux
+" set ttytype=builtin_linux
 set t_Co=256
 
 " from kytiken
 set smarttab
 set expandtab
 set shiftwidth=2
-" set shiftround
+set shiftround
 set nowrap
 set showcmd
 set autoindent
