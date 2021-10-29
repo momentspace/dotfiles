@@ -52,6 +52,9 @@ export PATH="/usr/local/heroku/bin:$PATH"
 # Preferred editor for local and remote sessions
 export EDITOR='vim'
 
+# History Size
+export HISTSIZE=10000
+
 # ssh
 export SSH_KEY_PATH="~/.ssh/dsa_id"
 
@@ -89,3 +92,5 @@ bindkey "^[[3~" delete-char
 # color
 export TERM=xterm-256color
 
+
+export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).

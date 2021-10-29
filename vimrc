@@ -19,7 +19,7 @@ NeoBundle 'Shougo/vimproc', {
 NeoBundle 'Shougo/vimshell'     " vimからshell起動
 NeoBundle 'scrooloose/nerdtree' " Nerdtree
 NeoBundle 'Shougo/unite.vim'    " ファイラ兼ランチャ
-NeoBundle 'Shougo/neomru.vim'   " file_mru
+" NeoBundle 'Shougo/neomru.vim'   " file_mru
 NeoBundle 'tpope/vim-fugitive'   " git client
 NeoBundle 'tpope/vim-pathogen'  " 
 " NeoBundle 'Shougo/neocomplcache'  " 入力候補表示 old
@@ -227,21 +227,22 @@ set wrapscan
 set enc=utf-8
 
 " teraterm設定
-set term=builtin_linux
-set ttytype=builtin_linux
-set t_Co=256
+" set term=builtin_linux
+" set ttytype=builtin_linux
+" set t_Co=256
 
 " from kytiken
 set smarttab
 set expandtab
 set shiftwidth=2
-set shiftround
+" set shiftround
 set nowrap
 set showcmd
 set autoindent
 set smartindent
 set hlsearch
 set laststatus=2
+set visualbell t_vb=
 
 if neobundle#exists_not_installed_bundles()
   echomsg 'Not installed bundles : '.
