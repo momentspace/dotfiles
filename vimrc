@@ -220,7 +220,6 @@ set number
 set title
 set showmatch
 set tabstop=2
-set smartindent
 set ignorecase
 set smartcase
 set wrapscan
@@ -322,6 +321,10 @@ let g:jsx_ext_required = 0
 
 " backspace
 set backspace=indent,eol,start
+
+" bell
+" set visualbell
+set vb t_vb=
 
 " vimgrep
 nnoremap [q :cprevious<CR>   " 前へ

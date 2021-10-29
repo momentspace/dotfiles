@@ -42,8 +42,11 @@ fi
 
 # Customize to your needs...
 
+# environment for n
+export N_PREFIX="$HOME/n"
+
 # path
-export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/bin:$N_PREFIX/bin:$PATH"
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
 
 ### Added by the Heroku Toolbelt
