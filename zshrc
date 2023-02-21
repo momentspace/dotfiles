@@ -13,14 +13,25 @@ fi
 # Essential
 source ~/.zplug/init.zsh
 
-# add plugin
-zplug "zsh-users/zsh-completions"
-zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf
-zplug "junegunn/fzf", as:command, use:bin/fzf-tmux
-zplug "peco/peco", as:command, from:gh-r
-zplug "b4b4r07/enhancd"
-zplug "b4b4r07/dotfiles", as:command, use:bin/peco-tmux
+# prezto
 zplug "sorin-ionescu/prezto"
+# prezto plugin
+zplug "modules/environment", from:prezto
+zplug "modules/terminal", from:prezto
+zplug "modules/editor", from:prezto
+zplug "modules/history", from:prezto
+zplug "modules/directory", from:prezto
+zplug "modules/spectrum", from:prezto
+zplug "modules/utility", from:prezto
+zplug "modules/completion", from:prezto
+zplug "modules/prompt", from:prezto
+# add plugin
+zplug "b4b4r07/enhancd", use:init.sh
+zplug "b4b4r07/dotfiles", as:command, use:bin/peco-tmux
+zplug "plugins/git", from:oh-my-zsh
+zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-completions"
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "felixr/docker-zsh-completion"
 
 # Install packages that have not been installed yet
@@ -32,8 +43,11 @@ if ! zplug check --verbose; then
         echo
     fi
 fi
+zplug load --verbose
 
-zplug load
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
 
 if zplug check b4b4r07/enhancd; then
   # enhancd がインストールされている場合のみ設定する
@@ -80,7 +94,7 @@ export PATH="/usr/local/heroku/bin:$PATH"
 #bindkey "^[[4~" end-of-line
 
 # aliases
-alias ls="ls -G" # color for darwin
+alias ls="ls --color=always"
 alias ll="ls -la"
 alias tree="tree -NC" # N: 文字化け対策, C:色をつける
 alias grep="grep --color -n -I --exclude='*.svn-*' --exclude='entries' --exclude='*/cache/*'"
