@@ -10,3 +10,4 @@ ln -s ~/dotfiles/zshrc ~/.zshrc
 ln -s ~/dotfiles/zpreztorc ~/.zpreztorc
 ln -s ~/dotfiles/zprofile ~/.zprofile
 ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
+ln -s ~/dotfiles/dein/ ~/.vim/dein
